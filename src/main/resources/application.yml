@@ -1,0 +1,30 @@
+server:
+  port: 8084
+  servlet:
+      context-path: /bridge
+spring:
+  devtools:
+    freemarker:
+      cache: false    #页面不加载缓存，修改即时生效
+  redis:
+    database: 0
+    host: 192.168.1.54
+    port: 6379
+    password: 123456
+  datasource:
+    url: jdbc:mysql://47.90.62.114:3306/bsl_project
+    username: bitdev
+    password: sdfsdf23234@lsrl
+    driver-class-name: com.mysql.jdbc.Driver
+management:
+  server:
+    port: 1001
+  # 默认Actuator只暴露了health和info端点，在SpringBoot的application.yml配置文件中加入这句话暴露所有端点
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  # 代表启用单独的url地址来监控Spring Boot应用，为了安全一般都启用独立的端口来访问后端的监控信息
+  servlet:
+    context-path: /bridge
+
